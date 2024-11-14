@@ -25,14 +25,13 @@ public class Main {
             System.out.println("12. Activar ionizador");
             System.out.println("13. Ajustar ionizador");
             System.out.println("14. Crear perfil");
-            System.out.println("15. Editar perfil");
-            System.out.println("16. Elegir perfil");
-            System.out.println("17. Ver historial de mantenimiento");
-            System.out.println("18. Programar mantenimiento");
-            System.out.println("19. Salir");
+            System.out.println("15. Elegir perfil");
+            System.out.println("16. Ver historial de mantenimiento");
+            System.out.println("17. Programar mantenimiento");
+            System.out.println("18. Salir");
             System.out.print("Elija una opción: ");
             int opcion = scanner.nextInt();
-            scanner.nextLine();  // Limpiar buffer
+            scanner.nextLine();  
 
             switch (opcion) {
                 case 1:
@@ -92,20 +91,14 @@ public class Main {
                     climatizador.crearPerfil(perfil);
                     break;
                 case 15:
-                    System.out.print("Ingrese nombre del perfil a editar: ");
-                    String perfilEditar = scanner.nextLine();
-                    climatizador.editarPerfil(perfilEditar);
-                    break;
-                case 16:
                     System.out.print("Ingrese nombre del perfil a elegir: ");
                     String perfilElegir = scanner.nextLine();
                     climatizador.elegirPerfil(perfilElegir);
                     break;
-                case 17:
+                case 16:
                     System.out.println(climatizador.historialMantenimiento());
                     break;
-                case 18:
-                    // Modificación aquí
+                case 17:
                     System.out.print("Ingrese fecha de mantenimiento (formato: YYYY-MM-DD): ");
                     String fechaStr = scanner.nextLine();
                     SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
@@ -117,7 +110,7 @@ public class Main {
                         System.out.println("Fecha inválida. Asegúrese de usar el formato correcto.");
                     }
                     break;
-                case 19:
+                case 18:
                     salir = true;
                     break;
                 default:

@@ -123,14 +123,6 @@ public class ClaseA {
         System.out.println("Ionizador reducido para ahorrar energía.");
     }
 
-    public void editarPerfil(String nombre) {
-        if (perfiles.contains(nombre)) {
-            System.out.println("Perfil " + nombre + " editado.");
-        } else {
-            System.out.println("Perfil no encontrado.");
-        }
-    }
-
     public void elegirPerfil(String nombre) {
         if (perfiles.contains(nombre)) {
             System.out.println("Perfil " + nombre + " seleccionado.");
@@ -141,7 +133,7 @@ public class ClaseA {
 
     public boolean mantenimiento() {
         System.out.println("Realizando revisión de mantenimiento...");
-        return true; // Suponemos que siempre necesita mantenimiento
+        return true; 
     }
 
     public String historialMantenimiento() {
