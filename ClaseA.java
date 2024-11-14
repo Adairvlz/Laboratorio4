@@ -1,208 +1,156 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
-public class ClaseA implements BMWClaseA {
-    private boolean encendido = false;
-    private int temperatura = 22; // Temperatura inicial
-    private int nivelVentilacion = 1;
-    private String direccionFlujo = "Frontal";
-    private boolean circulacionInterna = false;
-    private boolean calefaccionRapida = false;
-    private boolean desempañador = false;
-    private boolean ionizador = false;
-    private ArrayList<String> historialMantenimiento = new ArrayList<>();
+public class ClaseA {
 
-    @Override
+    private boolean encendido;
+    private int temperatura;
+    private boolean modoAutomatico;
+    private int nivelVentilacion;
+    private String direccionFlujo;
+    private boolean circulacionInterna;
+    private int calefaccionAsientos;
+    private String calefaccionVolante;
+    private boolean calefaccionRapida;
+    private boolean desempañador;
+    private boolean ionizador;
+    private List<String> perfiles;
+    private List<String> historialMantenimiento;
+
+    // Constructor sin parámetros
+    public ClaseA() {
+        this.encendido = false;
+        this.temperatura = 22;  // Temperatura predeterminada
+        this.modoAutomatico = false;
+        this.nivelVentilacion = 3;  // Nivel de ventilación predeterminado
+        this.direccionFlujo = "Frontal";  // Dirección de flujo predeterminada
+        this.circulacionInterna = false;
+        this.calefaccionAsientos = 0;
+        this.calefaccionVolante = "Desactivada";
+        this.calefaccionRapida = false;
+        this.desempañador = false;
+        this.ionizador = false;
+        this.perfiles = new ArrayList<>();
+        this.historialMantenimiento = new ArrayList<>();
+    }
+
+    // Métodos de la clase
+
     public void encender() {
         encendido = true;
+        System.out.println("Climatización encendida.");
     }
 
-    @Override
     public void apagar() {
         encendido = false;
+        System.out.println("Climatización apagada.");
     }
 
-    @Override
     public void ajustarTemperatura(int incremento) {
-        if (encendido) {
-            temperatura += incremento;
-        }
+        temperatura += incremento;
+        System.out.println("Temperatura ajustada a: " + temperatura + "°C.");
     }
 
-    @Override
     public void activarModoAutomatico() {
-        if (encendido) {
-            int temperaturaExterna = 30; // Ejemplo de temperatura externa
-            temperatura = temperaturaExterna > 25 ? 20 : 24;
-        }
+        modoAutomatico = true;
+        System.out.println("Modo automático activado.");
     }
 
-    @Override
     public void ajustarNivelVentilacion(int nivel) {
-        if (encendido) {
-            nivelVentilacion = Math.min(Math.max(nivel, 1), 5);
-        }
+        nivelVentilacion = nivel;
+        System.out.println("Nivel de ventilación ajustado a: " + nivelVentilacion);
     }
 
-    @Override
     public void cambiarDireccionFlujo(String direccion) {
-        if (encendido) {
-            direccionFlujo = direccion;
-        }
+        direccionFlujo = direccion;
+        System.out.println("Dirección de flujo cambiada a: " + direccionFlujo);
     }
 
-    @Override
     public void activarCirculacionInterna() {
-        if (encendido) {
-            circulacionInterna = !circulacionInterna;
-        }
+        circulacionInterna = true;
+        System.out.println("Circulación interna activada.");
     }
 
-    @Override
     public void ajustarCalefaccionAsientos(int nivel) {
-        if (encendido) {
-            System.out.println("Calefacción en los asientos ajustada al nivel " + nivel);
-        }
+        calefaccionAsientos = nivel;
+        System.out.println("Calefacción en asientos ajustada al nivel: " + calefaccionAsientos);
     }
 
-    @Override
     public void activarCalefaccionVolante(String nivel) {
-        if (encendido) {
-            System.out.println("Calefacción del volante activada con nivel " + nivel);
-        }
+        calefaccionVolante = nivel;
+        System.out.println("Calefacción del volante activada al nivel: " + calefaccionVolante);
     }
 
-    @Override
     public void activarCalefaccionRapida() {
-        if (encendido) {
-            calefaccionRapida = true;
-        }
+        calefaccionRapida = true;
+        System.out.println("Calefacción rápida activada.");
     }
 
-    @Override
     public void activarDesempañador() {
-        if (encendido) {
-            desempañador = !desempañador;
-        }
+        desempañador = true;
+        System.out.println("Desempañador activado.");
     }
 
-    @Override
     public void activarIonizador() {
-        if (encendido) {
-            ionizador = !ionizador;
-        }
+        ionizador = true;
+        System.out.println("Ionizador activado.");
     }
 
-    @Override
     public void autoIonizador(String nivel) {
-        if (encendido) {
-            System.out.println("Ionizador automático activado con nivel " + nivel);
-        }
+        System.out.println("Ionizador ajustado automáticamente al nivel: " + nivel);
     }
 
-    @Override
     public void ajustarIonizador(String nivel) {
-        if (encendido) {
-            System.out.println("Nivel del ionizador ajustado a " + nivel);
-        }
+        System.out.println("Ionizador ajustado al nivel: " + nivel);
     }
 
-    @Override
     public void crearPerfil(String nombre) {
-        if (encendido) {
-            System.out.println("Perfil creado: " + nombre);
-        }
+        perfiles.add(nombre);
+        System.out.println("Perfil creado: " + nombre);
     }
 
-    @Override
     public String cicloIonizador() {
-        if (encendido) {
-            return "Calidad del aire: Buena";
-        }
-        return "Ionizador apagado";
+        System.out.println("Aumentando la ventilación...");
+        return "Calidad del aire mejorada.";
     }
 
-    @Override
     public void autoLimpiezaIonizador() {
-        if (encendido) {
-            System.out.println("Limpieza automática del ionizador activada");
-        }
+        System.out.println("Limpieza automática del ionizador activada.");
     }
 
-    @Override
     public void reduceIonizador() {
-        if (encendido) {
-            System.out.println("Intensidad del ionizador reducida para ahorrar energía");
+        System.out.println("Ionizador reducido para ahorrar energía.");
+    }
+
+    public void editarPerfil(String nombre) {
+        if (perfiles.contains(nombre)) {
+            System.out.println("Perfil " + nombre + " editado.");
+        } else {
+            System.out.println("Perfil no encontrado.");
         }
     }
 
-    @Override
-    public void crearPerfil() {
-        System.out.println("Nuevo perfil creado con configuraciones actuales");
+    public void elegirPerfil(String nombre) {
+        if (perfiles.contains(nombre)) {
+            System.out.println("Perfil " + nombre + " seleccionado.");
+        } else {
+            System.out.println("Perfil no encontrado.");
+        }
     }
 
-    @Override
-    public void editarPerfil() {
-        System.out.println("Perfil editado");
-    }
-
-    @Override
-    public void elegirPerfil() {
-        System.out.println("Perfil seleccionado");
-    }
-
-    @Override
     public boolean mantenimiento() {
-        return !historialMantenimiento.isEmpty();
+        System.out.println("Realizando revisión de mantenimiento...");
+        return true; // Suponemos que siempre necesita mantenimiento
     }
 
-    @Override
     public String historialMantenimiento() {
-        return historialMantenimiento.toString();
+        return "Historial de mantenimiento: " + historialMantenimiento;
     }
 
-    @Override
     public void programarMantenimiento(Date fecha) {
-        historialMantenimiento.add("Mantenimiento programado para: " + fecha);
-    }
-
-    public int getTemperatura() {
-        return temperatura;
-    }
-
-    public void setTemperatura(int temperatura) {
-        this.temperatura = temperatura;
-    }
-
-    public int getNivelVentilacion() {
-        return nivelVentilacion;
-    }
-
-    public void setNivelVentilacion(int nivelVentilacion) {
-        this.nivelVentilacion = nivelVentilacion;
-    }
-
-    public ArrayList<String> getHistorialMantenimiento() {
-        return historialMantenimiento;
-    }
-
-    public void setHistorialMantenimiento(ArrayList<String> historialMantenimiento) {
-        this.historialMantenimiento = historialMantenimiento;
-    }
-
-    public boolean isCalefaccionRapida() {
-        return calefaccionRapida;
-    }
-
-    public void setCalefaccionRapida(boolean calefaccionRapida) {
-        this.calefaccionRapida = calefaccionRapida;
-    }
-
-    public String getDireccionFlujo() {
-        return direccionFlujo;
-    }
-
-    public void setDireccionFlujo(String direccionFlujo) {
-        this.direccionFlujo = direccionFlujo;
+        historialMantenimiento.add("Mantenimiento programado para: " + fecha.toString());
+        System.out.println("Mantenimiento programado para: " + fecha.toString());
     }
 }
+

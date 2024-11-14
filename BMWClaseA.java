@@ -19,7 +19,6 @@ public interface BMWClaseA {
     String cicloIonizador(); // Aumenta la ventilación y devuelve la calidad del aire en formato de texto.
     void autoLimpiezaIonizador(); // Activa la limpieza automática del ionizador, no devuelve nada.
     void reduceIonizador(); // Reduce la intensidad del ionizador para ahorrar energía, no devuelve nada.
-    void crearPerfil(); // Configura perfiles personalizados de climatización, no devuelve nada.
     void editarPerfil(); // Permite editar los perfiles, no devuelve nada.
     void elegirPerfil(); // Selecciona un perfil al entrar al vehículo, no devuelve nada.
     boolean mantenimiento(); // Notifica si es necesario un mantenimiento, puede devolver un valor booleano.
